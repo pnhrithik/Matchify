@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { ArrowRight, Mail, Microscope, Stethoscope } from "lucide-react";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { brandAssets } from "@/lib/data";
 
 interface HeroProps {
   trustBadge?: {
@@ -411,7 +412,7 @@ const Hero: React.FC<HeroProps> = ({
                     onClick={buttons.secondary.onClick}
                     variant="outline"
                     size="xxl"
-                    className="border-white/20 bg-white/5 text-white hover:bg-white/10"
+                    className="border-white/45 bg-white text-brand-ink shadow-[0_18px_40px_rgba(255,255,255,0.14)] hover:bg-[#eef4ff]"
                   >
                     <span className="inline-flex items-center gap-2">
                       {buttons.secondary.text}
@@ -463,75 +464,76 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         <div className="grid gap-5">
-          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(240,243,255,0.78))] p-6 text-brand-ink shadow-2xl shadow-[#040812]/30">
-            <img
-              src="/assets/matchify-tagline.png"
-              alt="Matchify.org logo with tagline"
-              className="mx-auto h-auto w-full max-w-[460px]"
-            />
-            <div className="mt-6 rounded-[26px] bg-[linear-gradient(135deg,#0d153e,#16255c_58%,#ca2430)] p-[1px]">
-              <div className="rounded-[25px] bg-[#f8f7f2] p-5">
-                <video
-                  src="/assets/matchify-launch.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="h-[220px] w-full rounded-[18px] object-cover"
-                />
-                <div className="mt-4 flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-red">
-                      Matchify Identity
-                    </p>
-                    <p className="mt-1 font-display text-3xl text-brand-ink">
-                      A premium one-stop residency brand.
-                    </p>
-                  </div>
-                  <LiquidButton
-                    size="lg"
-                    onClick={() => {
-                      window.location.href = "/services";
-                    }}
-                  >
-                    See Services
-                  </LiquidButton>
-                </div>
+          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(160deg,rgba(255,255,255,0.95),rgba(240,243,255,0.78))] p-5 text-brand-ink shadow-2xl shadow-[#040812]/30">
+            <div className="overflow-hidden rounded-[20px]">
+              <video
+                src="/assets/matchify-launch.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="h-[240px] w-full rounded-[20px] object-cover object-center"
+              />
+            </div>
+            <div className="mt-4 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-red">
+                  Matchify Identity
+                </p>
+                <p className="mt-1 font-display text-2xl text-brand-ink">
+                  A premium one-stop residency brand.
+                </p>
               </div>
+              <LiquidButton
+                size="lg"
+                onClick={buttons?.secondary?.onClick}
+              >
+                See Services
+              </LiquidButton>
             </div>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-5 lg:grid-cols-2">
             <div className="rounded-[30px] border border-white/10 bg-white/10 p-5 backdrop-blur-md">
-              <img
-                src="/assets/hrithik-headshot.jpg"
-                alt="Dr Hrithik Dakssesh"
-                className="h-[220px] w-full rounded-[22px] object-cover object-top"
-              />
-              <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffd4d7]">
-                Co-Founder
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffd4d7]">
+                Matchify Focus
               </p>
-              <h3 className="mt-2 font-display text-3xl text-white">Dr Hrithik Dakssesh</h3>
-              <p className="mt-2 text-sm leading-7 text-white/76">
-                Incoming Internal Medicine Resident with 40+ publications and abstracts.
+              <h3 className="mt-2 font-display text-3xl text-white">A complete residency roadmap</h3>
+              <p className="mt-3 text-sm leading-7 text-white/80">
+                Matchify combines exam planning, research strategy, ERAS positioning, and interview coaching inside one coordinated advisory flow.
               </p>
+              <div className="mt-6 grid gap-3">
+                <div className="rounded-[18px] border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/82">
+                  Physician-led strategy and profile review
+                </div>
+                <div className="rounded-[18px] border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/82">
+                  Publication and abstract mentorship for stronger academic positioning
+                </div>
+              </div>
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-[linear-gradient(155deg,rgba(255,255,255,0.14),rgba(255,255,255,0.04))] p-5 backdrop-blur-md">
-              <div className="flex h-[220px] items-end rounded-[22px] bg-[linear-gradient(150deg,#15205b_0%,#26357f_52%,#c51a24_100%)] p-5">
-                <div className="rounded-[18px] border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
+              <div className="flex flex-col gap-4 rounded-[22px] bg-[linear-gradient(150deg,#15205b_0%,#26357f_52%,#c51a24_100%)] p-5">
+                <div className="rounded-[18px] border border-white/10 bg-white/10 p-4 backdrop-blur-md">
                   <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-white/65">
-                    Research Strength
+                    Research Batch
                   </p>
-                  <p className="mt-2 font-display text-5xl text-white">70+</p>
+                  <img
+                    src={brandAssets.acgLogo}
+                    alt="American College of Gastroenterology"
+                    className="mt-3 h-16 w-16 rounded-[14px] bg-white p-2 object-contain"
+                  />
                 </div>
+                <p className="text-sm leading-7 text-white/80">
+                  Inaugural abstract-support cohort shaped for applicants preparing research work for the American College of Gastroenterology.
+                </p>
               </div>
               <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffd4d7]">
-                Co-Founder
+                Intentional research positioning
               </p>
-              <h3 className="mt-2 font-display text-3xl text-white">Balakrishnan Kamaraj</h3>
+              <h3 className="mt-2 font-display text-3xl text-white">Built for applicants who want academic work to count</h3>
               <p className="mt-2 text-sm leading-7 text-white/76">
-                Publication-focused co-founder with 70+ peer-reviewed publications and conference abstracts.
+                Structured topic refinement, abstract readiness, authorship discipline, and conference storytelling for applicants building a more credible research profile.
               </p>
             </div>
           </div>

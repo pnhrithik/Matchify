@@ -7,11 +7,36 @@ import {
   Stethoscope,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import balakrishnanHeadshot from "../../PHOTO-2026-04-18-19-13-47.jpg";
+import hrithikHeadshot from "../../Putta Nagarajan_Photo.jpg";
+import acgLogo from "../../acg-american-college-of-gastroenterology-logo-png_seeklogo-482549.png";
+import emailIcon from "../../email-opened-svgrepo-com.svg";
+import googleScholarIcon from "../../google-scholar-svgrepo-com.svg";
+import instagramIcon from "../../instagram-color-svgrepo-com.svg";
+import linkedinIcon from "../../linkedin-color-svgrepo-com.svg";
+import phoneIcon from "../../phone-call-essential-svgrepo-com.svg";
+import researchgateIcon from "../../researchgate-svgrepo-com.svg";
 
 export type Service = {
   title: string;
   summary: string;
   icon: LucideIcon;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: string;
+};
+
+export type FounderProfile = {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  imagePosition?: string;
+  email: string;
+  socials: SocialLink[];
 };
 
 export const navigation = [
@@ -62,6 +87,91 @@ export const services: Service[] = [
   },
 ];
 
+export const founders: FounderProfile[] = [
+  {
+    name: "Dr Hrithik Dakssesh",
+    role: "Co-Founder | Clinical Strategy",
+    bio:
+      "Incoming Internal Medicine Resident at Macon and Joan Brock Virginia Health Sciences at Old Dominion University with 40+ publications in peer-reviewed journals and conference abstracts.",
+    image: hrithikHeadshot,
+    imagePosition: "object-top",
+    email: "hrithik@matchify.org",
+    socials: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/hrithik-dakssesh-putta-nagarajan-0a62b6144/",
+        icon: linkedinIcon,
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/hrithikdakssesh/",
+        icon: instagramIcon,
+      },
+      {
+        label: "ResearchGate",
+        href: "https://www.researchgate.net/profile/Hrithik-Dakssesh-Putta-Nagarajan",
+        icon: researchgateIcon,
+      },
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?user=5VYEUtIAAAAJ&hl=en",
+        icon: googleScholarIcon,
+      },
+    ],
+  },
+  {
+    name: "Balakrishnan Kamaraj",
+    role: "Co-Founder | Research Strategy",
+    bio:
+      "Research-focused co-founder with 70+ publications in peer-reviewed journals and conference abstracts, bringing deep academic credibility to Matchify's publication, abstract, and conference advisory approach.",
+    image: balakrishnanHeadshot,
+    imagePosition: "object-center",
+    email: "bala@matchify.org",
+    socials: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/k-balakrishnan-8411b4203/",
+        icon: linkedinIcon,
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/balakrishnan_015/",
+        icon: instagramIcon,
+      },
+      {
+        label: "ResearchGate",
+        href: "https://www.researchgate.net/profile/Balakrishnan-Kamaraj",
+        icon: researchgateIcon,
+      },
+      {
+        label: "Google Scholar",
+        href: "https://scholar.google.com/citations?hl=en&user=hQNNH2UAAAAJ",
+        icon: googleScholarIcon,
+      },
+    ],
+  },
+];
+
+export const siteContact = {
+  email: "info@matchify.org",
+  phones: ["+919150420706", "+917902891643"],
+  socials: [
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/matchify_org/",
+      icon: instagramIcon,
+    },
+  ] satisfies SocialLink[],
+  icons: {
+    email: emailIcon,
+    phone: phoneIcon,
+  },
+};
+
+export const brandAssets = {
+  acgLogo,
+};
+
 export const faqs = [
   {
     question: "Who is Matchify built for?",
@@ -83,12 +193,32 @@ export const faqs = [
     answer:
       "The founding team's physician perspective, publication record, and end-to-end application framing make Matchify feel less like a disconnected agency and more like a strategic advisory partner.",
   },
+  {
+    question: "Can Matchify help if I am still building my CV and research profile?",
+    answer:
+      "Yes. Matchify can help applicants build an earlier-stage roadmap around exams, research, rotations, and profile positioning before the ERAS submission window becomes urgent.",
+  },
+  {
+    question: "Do you support applicants who need publication or abstract mentorship specifically?",
+    answer:
+      "Yes. Publication planning, abstract development, conference readiness, and research storytelling are core parts of Matchify's advisory offering, especially for applicants who want their academic work to strengthen specialty positioning.",
+  },
+  {
+    question: "Is pricing fixed for every applicant?",
+    answer:
+      "No. Engagement depth depends on where you are in the residency journey and how much hands-on support you need, so Matchify can recommend a more tailored package after the first conversation.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Use the contact form to share your current stage, specialty interests, and immediate goals. Matchify can then suggest the most relevant next steps, advisory scope, and research or application support options.",
+  },
 ];
 
 export const pricingPlans = [
   {
     tier: "Foundation",
-    price: "Starting at $299",
+    price: "Contact for pricing",
     detail: "Ideal for applicants who need a focused strategy session and roadmap.",
     features: [
       "Residency application audit",
@@ -99,7 +229,7 @@ export const pricingPlans = [
   },
   {
     tier: "Application Build",
-    price: "Custom package",
+    price: "Tailored proposal",
     detail: "For applicants who want active support across preparation, positioning, and execution.",
     features: [
       "Everything in Foundation",
@@ -110,7 +240,7 @@ export const pricingPlans = [
   },
   {
     tier: "Full Match Concierge",
-    price: "Premium",
+    price: "Contact for details",
     detail: "For applicants who want end-to-end mentorship across the full pathway.",
     features: [
       "USMLE planning",

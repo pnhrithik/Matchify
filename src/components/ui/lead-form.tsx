@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { siteContact } from "@/lib/data";
 
 export function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,14 +16,14 @@ export function LeadForm() {
       `Name: ${name}\nEmail: ${email}\nStage: ${stage}\n\nGoals:\n${note}`,
     );
 
-    window.location.href = `mailto:hrithik@matchify.org?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${siteContact.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
   return (
     <form onSubmit={handleSubmit} className="editorial-card grid gap-5 p-6 md:p-8">
       <div className="grid gap-2">
-        <label htmlFor="name" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-slate-200">
+        <label htmlFor="name" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-[#73C0FE]">
           Full name
         </label>
         <input
@@ -34,7 +35,7 @@ export function LeadForm() {
         />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="email" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-slate-200">
+        <label htmlFor="email" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-[#73C0FE]">
           Email
         </label>
         <input
@@ -47,7 +48,7 @@ export function LeadForm() {
         />
       </div>
       <div className="grid gap-2">
-        <label htmlFor="stage" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-slate-200">
+        <label htmlFor="stage" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-[#73C0FE]">
           Current stage
         </label>
         <select
@@ -65,7 +66,7 @@ export function LeadForm() {
         </select>
       </div>
       <div className="grid gap-2">
-        <label htmlFor="note" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-slate-200">
+        <label htmlFor="note" className="text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue dark:text-[#73C0FE]">
           What do you need help with?
         </label>
         <textarea
@@ -83,9 +84,9 @@ export function LeadForm() {
         Send Inquiry
       </button>
       {submitted ? (
-        <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">
+        <p className="text-sm leading-7 text-slate-600 dark:text-white">
           Your email app should open with the inquiry details prefilled. If it
-          does not, you can also write directly to hrithik@matchify.org.
+          does not, you can also write directly to {siteContact.email}.
         </p>
       ) : null}
     </form>

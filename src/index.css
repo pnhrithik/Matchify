@@ -11,7 +11,7 @@
   }
 
   html.dark {
-    color: #edf2ff;
+    color: #f8fbff;
     background: #08102d;
   }
 
@@ -29,10 +29,10 @@
 
   html.dark body {
     background:
-      radial-gradient(circle at top left, rgba(90, 128, 255, 0.18), transparent 22%),
-      radial-gradient(circle at top right, rgba(197, 26, 36, 0.14), transparent 28%),
-      linear-gradient(180deg, #08102d 0%, #0a143a 38%, #111a40 100%);
-    @apply text-slate-100;
+      radial-gradient(circle at top left, rgba(117, 190, 255, 0.24), transparent 24%),
+      radial-gradient(circle at top right, rgba(197, 26, 36, 0.12), transparent 28%),
+      linear-gradient(180deg, #08102d 0%, #0d1a48 38%, #132359 100%);
+    @apply text-white;
   }
 
   * {
@@ -40,7 +40,7 @@
   }
 
   a {
-    @apply transition-all duration-300;
+    @apply transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-300;
   }
 }
 
@@ -61,7 +61,7 @@
   }
 
   .section-copy {
-    @apply text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg;
+    @apply text-base leading-8 text-slate-600 dark:text-white md:text-lg;
   }
 
   .eyebrow {
@@ -90,7 +90,7 @@
   }
 
   .editorial-chip {
-    @apply inline-flex items-center rounded-full border border-brand-blue/10 bg-white/70 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand-blue dark:border-white/10 dark:bg-white/5 dark:text-slate-100;
+    @apply inline-flex items-center rounded-full border border-brand-blue/10 bg-white/70 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand-blue dark:border-white/10 dark:bg-white/5 dark:text-[#73C0FE];
   }
 
   .nav-shell {

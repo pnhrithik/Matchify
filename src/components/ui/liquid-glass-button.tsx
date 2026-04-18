@@ -99,7 +99,7 @@ function LiquidButton({
       className={cn("relative", liquidbuttonVariants({ variant, size, className }))}
       {...props}
     >
-      <div className="absolute left-0 top-0 z-0 h-full w-full rounded-full border border-white/25 bg-white/15 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(255,255,255,0.8),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.4),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.55),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.2),inset_0_0_8px_6px_rgba(255,255,255,0.08),0_0_24px_rgba(255,255,255,0.1)] backdrop-blur-xl transition-all" />
+      <div className="absolute left-0 top-0 z-0 h-full w-full rounded-full border border-white/25 bg-white/15 shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(255,255,255,0.8),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.4),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.55),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.2),inset_0_0_8px_6px_rgba(255,255,255,0.08),0_0_24px_rgba(255,255,255,0.1)] backdrop-blur-xl transition-[transform,box-shadow,border-color,background-color]" />
       <div
         className="absolute left-0 top-0 isolate -z-10 h-full w-full overflow-hidden rounded-full"
         style={{ backdropFilter: 'url("#container-glass")' }}

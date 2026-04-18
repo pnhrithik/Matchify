@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { navigation } from "@/lib/data";
+import { SocialIconLink } from "@/components/ui/social-icon-link";
+import { navigation, siteContact } from "@/lib/data";
 
 export function SiteFooter() {
   return (
@@ -14,7 +15,7 @@ export function SiteFooter() {
                 className="h-auto w-full max-w-[360px]"
               />
               <div className="editorial-chip">Residency Advisory Platform</div>
-              <p className="max-w-xl text-base leading-8 text-slate-600 dark:text-slate-300">
+              <p className="max-w-xl text-base leading-8 text-slate-600 dark:text-white">
                 Matchify.org is a residency consultancy built to help medical
                 students and professionals navigate the US Match with stronger
                 structure, sharper positioning, and trusted physician guidance.
@@ -30,7 +31,7 @@ export function SiteFooter() {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="text-sm font-bold uppercase tracking-[0.08em] text-brand-blue hover:text-brand-red dark:text-slate-100"
+                    className="text-sm font-bold uppercase tracking-[0.08em] text-brand-blue hover:text-brand-red dark:text-[#73C0FE]"
                   >
                     {item.label}
                   </Link>
@@ -42,39 +43,43 @@ export function SiteFooter() {
               <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.18em] text-brand-red">
                 Contact
               </p>
-              <div className="grid gap-3 text-base text-slate-600 dark:text-slate-300">
-                <a href="mailto:hrithik@matchify.org" className="hover:text-brand-blue">
-                  hrithik@matchify.org
-                </a>
+              <div className="grid gap-4 text-base text-slate-600 dark:text-white">
                 <a
-                  href="https://www.linkedin.com/in/hrithik-dakssesh-putta-nagarajan-0a62b6144/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-brand-blue"
+                  href={`mailto:${siteContact.email}`}
+                  className="flex items-center gap-3 transition-colors hover:text-brand-blue dark:hover:text-[#73C0FE]"
                 >
-                  LinkedIn
+                  <img src={siteContact.icons.email} alt="" className="h-5 w-5 object-contain" />
+                  <span>{siteContact.email}</span>
                 </a>
-                <a
-                  href="https://scholar.google.com/citations?user=5VYEUtIAAAAJ&hl=en"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-brand-blue"
-                >
-                  Google Scholar
-                </a>
-                <a
-                  href="https://matchify.org"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-brand-blue"
-                >
-                  matchify.org
-                </a>
+                <div className="flex items-start gap-3">
+                  <img src={siteContact.icons.phone} alt="" className="mt-1 h-5 w-5 object-contain" />
+                  <div className="grid gap-1">
+                    {siteContact.phones.map((phone) => (
+                      <a
+                        key={phone}
+                        href={`tel:${phone}`}
+                        className="transition-colors hover:text-brand-blue dark:hover:text-[#73C0FE]"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  {siteContact.socials.map((social) => (
+                    <SocialIconLink
+                      key={social.label}
+                      href={social.href}
+                      label={`Matchify ${social.label}`}
+                      icon={social.icon}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-brand-blue/10/60 pt-5 text-sm text-slate-500 dark:text-slate-400">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-brand-blue/10/60 pt-5 text-sm text-slate-500 dark:text-white/80">
             <p>Built to Get You Matched.</p>
             <p>{new Date().getFullYear()} Matchify.org. All rights reserved.</p>
           </div>

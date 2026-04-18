@@ -30,7 +30,7 @@ export function FaqList({ items }: FaqListProps) {
               <span className="mt-2 text-brand-red">{open ? "−" : "+"}</span>
             </div>
             {open ? (
-              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600 dark:text-white">
                 {item.answer}
               </p>
             ) : null}

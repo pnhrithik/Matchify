@@ -18,14 +18,14 @@ export function ServicesPage() {
           <article key={service.title} className="surface p-8">
             <div className="flex items-center justify-between">
               <service.icon className="text-brand-red" size={30} />
-              <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-brand-blue/40">
+              <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-brand-blue/40 dark:text-[#73C0FE]/70">
                 0{index + 1}
               </span>
             </div>
-            <h2 className="mt-6 font-display text-4xl leading-tight text-brand-ink">
+            <h2 className="mt-6 font-display text-4xl leading-tight text-brand-ink dark:text-white">
               {service.title}
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-600">{service.summary}</p>
+            <p className="mt-5 text-base leading-8 text-slate-600 dark:text-white">{service.summary}</p>
           </article>
         ))}
       </section>

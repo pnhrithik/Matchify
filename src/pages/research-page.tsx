@@ -21,9 +21,9 @@ export function ResearchPage() {
           />
           <div className="mt-8 grid gap-4">
             {outcomes.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-[22px] border border-brand-blue/10 bg-white p-4">
+              <div key={item} className="flex items-start gap-3 rounded-[22px] border border-brand-blue/10 bg-white p-4 dark:border-white/10 dark:bg-white/5">
                 <CheckCircle2 className="mt-1 text-brand-red" size={18} />
-                <p className="text-base leading-7 text-slate-600">{item}</p>
+                <p className="text-base leading-7 text-slate-600 dark:text-white">{item}</p>
               </div>
             ))}
           </div>
@@ -36,10 +36,10 @@ export function ResearchPage() {
               alt="American College of Gastroenterology logo"
               className="h-28 w-28 rounded-[24px] border border-brand-blue/10 bg-white p-4 object-contain"
             />
-            <h2 className="mt-8 font-display text-4xl leading-tight text-brand-ink">
+            <h2 className="mt-8 font-display text-4xl leading-tight text-brand-ink dark:text-white">
               Built for applicants who want research to look intentional, not accidental.
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-600">
+            <p className="mt-5 text-base leading-8 text-slate-600 dark:text-white">
               This page is positioned as a strong recruitment surface for the
               inaugural batch. Once dates, fees, or deadlines are finalized,
               they can drop into this layout without redesigning the page.
@@ -47,7 +47,7 @@ export function ResearchPage() {
           </div>
           <Link
             to="/contact"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.14em] text-brand-blue hover:text-brand-red"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.14em] text-brand-blue hover:text-brand-red dark:text-[#73C0FE]"
           >
             Join The Interest List <ArrowRight size={16} />
           </Link>

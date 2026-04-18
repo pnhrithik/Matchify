@@ -1,11 +1,12 @@
-import { ArrowRight, CheckCircle2, Quote } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { CheckCircle2, Quote } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Hero from "@/components/ui/animated-shader-hero";
 import { FaqList } from "@/components/ui/faq-list";
 import { LeadForm } from "@/components/ui/lead-form";
-import { LiquidButton, MetalButton } from "@/components/ui/liquid-glass-button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { SocialIconLink } from "@/components/ui/social-icon-link";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { blogPosts, faqs, pricingPlans, services, testimonials } from "@/lib/data";
+import { brandAssets, blogPosts, faqs, founders, pricingPlans, services, siteContact, testimonials } from "@/lib/data";
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -43,75 +44,45 @@ export function HomePage() {
             Two co-founders, two distinct strengths, one coordinated residency strategy.
           </h2>
           <div className="mt-8 grid gap-5 xl:grid-cols-2">
-            <article className="rounded-[26px] border border-brand-blue/10 bg-white/80 p-5 shadow-[0_16px_40px_rgba(9,16,55,0.08)] dark:border-white/10 dark:bg-white/5">
-              <img
-                src="/assets/hrithik-headshot.jpg"
-                alt="Dr Hrithik Dakssesh"
-                className="h-[280px] w-full rounded-[22px] object-cover object-top"
-              />
-              <div className="mt-5 space-y-4">
-                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-brand-red">
-                  Co-Founder | Clinical Strategy
-                </p>
-                <h3 className="font-display text-3xl text-brand-ink dark:text-white">
-                  Dr Hrithik Dakssesh
-                </h3>
-                <p className="section-copy">
-                  Incoming Internal Medicine Resident at Macon and Joan Brock
-                  Virginia Health Sciences at Old Dominion University with 40+
-                  publications in peer-reviewed journals and conference abstracts.
-                </p>
-                <div className="flex flex-wrap gap-3 pt-1">
-                  <a
-                    href="https://www.linkedin.com/in/hrithik-dakssesh-putta-nagarajan-0a62b6144/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="pill-button border border-brand-blue/10 bg-white text-brand-blue hover:-translate-y-0.5 hover:border-brand-red dark:bg-white/10 dark:text-white"
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    href="https://scholar.google.com/citations?user=5VYEUtIAAAAJ&hl=en"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="pill-button border border-brand-blue/10 bg-white text-brand-blue hover:-translate-y-0.5 hover:border-brand-red dark:bg-white/10 dark:text-white"
-                  >
-                    Google Scholar
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article className="rounded-[26px] border border-brand-blue/10 bg-white/80 p-6 shadow-[0_16px_40px_rgba(9,16,55,0.08)] dark:border-white/10 dark:bg-white/5">
-              <div className="flex h-[280px] items-end rounded-[22px] bg-[radial-gradient(circle_at_top,#2a3e95,transparent_55%),linear-gradient(160deg,#10193f_0%,#1d2862_55%,#3d4d98_100%)] p-6">
-                <div className="rounded-[20px] border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-md">
-                  <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-white/70">
-                    Academic Leadership
+            {founders.map((founder) => (
+              <article
+                key={founder.name}
+                className="rounded-[26px] border border-brand-blue/10 bg-white/80 p-5 shadow-[0_16px_40px_rgba(9,16,55,0.08)] dark:border-white/10 dark:bg-white/5"
+              >
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className={`h-[320px] w-full rounded-[22px] object-cover ${founder.imagePosition ?? "object-center"}`}
+                />
+                <div className="mt-5 space-y-4">
+                  <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-brand-red">
+                    {founder.role}
                   </p>
-                  <p className="mt-2 font-display text-4xl text-white">70+</p>
-                  <p className="mt-1 text-sm leading-6 text-white/80">
-                    Publications and conference abstracts
-                  </p>
+                  <h3 className="font-display text-3xl text-brand-ink dark:text-white">
+                    {founder.name}
+                  </h3>
+                  <p className="section-copy">{founder.bio}</p>
+                  <div className="rounded-[22px] border border-brand-blue/10 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+                    <div className="flex items-center gap-3 text-sm font-semibold text-brand-ink dark:text-white">
+                      <img src={siteContact.icons.email} alt="" className="h-5 w-5 object-contain" />
+                      <a href={`mailto:${founder.email}`} className="transition-colors hover:text-brand-red">
+                        {founder.email}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    {founder.socials.map((social) => (
+                      <SocialIconLink
+                        key={`${founder.name}-${social.label}`}
+                        href={social.href}
+                        label={`${founder.name} ${social.label}`}
+                        icon={social.icon}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="mt-5 space-y-4">
-                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-brand-red">
-                  Co-Founder | Research Strategy
-                </p>
-                <h3 className="font-display text-3xl text-brand-ink dark:text-white">
-                  Balakrishnan Kamaraj
-                </h3>
-                <p className="section-copy">
-                  Research-focused co-founder with 70+ publications in
-                  peer-reviewed journals and conference abstracts, bringing deep
-                  academic credibility to Matchify&apos;s publication, abstract,
-                  and conference advisory approach.
-                </p>
-                <div className="pt-1">
-                  <MetalButton variant="primary">Research-Focused Mentorship</MetalButton>
-                </div>
-              </div>
-            </article>
+              </article>
+            ))}
           </div>
         </div>
 
@@ -125,7 +96,7 @@ export function HomePage() {
                   <CheckCircle2 className="mt-1 text-brand-red" size={20} />
                   <div>
                     <p className="text-lg font-extrabold text-brand-ink dark:text-white">{service.title}</p>
-                    <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">{service.summary}</p>
+                    <p className="text-sm leading-7 text-slate-600 dark:text-white">{service.summary}</p>
                   </div>
                   </div>
                 </li>
@@ -147,10 +118,10 @@ export function HomePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-blue/5 dark:bg-white/5">
                 <service.icon className="text-brand-red" size={28} />
               </div>
-              <h3 className="mt-5 font-display text-3xl leading-tight text-brand-ink">
+              <h3 className="mt-5 font-display text-3xl leading-tight text-brand-ink dark:text-white">
                 {service.title}
               </h3>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{service.summary}</p>
+              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-white">{service.summary}</p>
             </article>
           ))}
         </div>
@@ -166,12 +137,13 @@ export function HomePage() {
             />
             <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-center">
               <img
-                src="/assets/acg-logo.png"
+                src={brandAssets.acgLogo}
                 alt="American College of Gastroenterology logo"
-                className="h-24 w-24 rounded-[22px] border border-brand-blue/10 bg-white p-3 object-contain"
+                className="h-28 w-28 rounded-[26px] border border-brand-blue/10 bg-white p-4 object-contain shadow-[0_16px_36px_rgba(9,16,55,0.08)] dark:border-white/10 dark:bg-white"
               />
               <div className="space-y-3">
-                <p className="text-base leading-8 text-slate-600">
+                <div className="editorial-chip">ACG-focused inaugural cohort</div>
+                <p className="text-base leading-8 text-slate-600 dark:text-white">
                   This upcoming cohort is designed for applicants who want early
                   mentorship in research ideation, abstract readiness, authorship
                   discipline, and stronger academic storytelling.
@@ -205,7 +177,7 @@ export function HomePage() {
         <SectionHeading
           eyebrow="Pricing"
           title="Simple tiers now, custom advisory depth as your application grows."
-          copy="Pricing can be finalized later, but the structure is already ready for prospects who want clarity."
+          copy="Use these tiers as a guide to engagement depth. Matchify shares detailed pricing after understanding your timeline, goals, and advisory needs."
         />
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {pricingPlans.map((plan, index) => (
@@ -216,17 +188,17 @@ export function HomePage() {
               <p className={`text-sm font-extrabold uppercase tracking-[0.16em] ${index === 1 ? "text-white/70" : "text-brand-red"}`}>
                 {plan.tier}
               </p>
-              <h3 className={`mt-3 font-display text-4xl ${index === 1 ? "text-white" : "text-brand-ink"}`}>
+              <h3 className={`mt-3 font-display text-4xl ${index === 1 ? "text-white" : "text-brand-ink dark:text-white"}`}>
                 {plan.price}
               </h3>
-              <p className={`mt-4 text-base leading-8 ${index === 1 ? "text-white/78" : "text-slate-600"}`}>
+              <p className={`mt-4 text-base leading-8 ${index === 1 ? "text-white/78" : "text-slate-600 dark:text-white"}`}>
                 {plan.detail}
               </p>
               <ul className="mt-6 grid gap-3">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className={`flex items-center gap-3 text-sm font-bold ${index === 1 ? "text-white/90" : "text-brand-ink"}`}
+                    className={`flex items-center gap-3 text-sm font-bold ${index === 1 ? "text-white/90" : "text-brand-ink dark:text-white"}`}
                   >
                     <CheckCircle2 size={18} className={index === 1 ? "text-white/80" : "text-brand-red"} />
                     {feature}
@@ -269,12 +241,6 @@ export function HomePage() {
             eyebrow="Blog"
             title="Early editorial content for applicants who want sharper strategy."
           />
-          <button
-            onClick={() => navigate("/blog")}
-            className="hidden items-center gap-2 text-sm font-extrabold uppercase tracking-[0.14em] text-brand-blue hover:text-brand-red md:inline-flex"
-          >
-            Visit Blog <ArrowRight size={16} />
-          </button>
         </div>
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {blogPosts.map((post) => (
@@ -282,20 +248,12 @@ export function HomePage() {
               <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-brand-red">
                 {post.category}
               </p>
-              <h3 className="mt-4 font-display text-3xl leading-tight text-brand-ink">
+              <h3 className="mt-4 font-display text-3xl leading-tight text-brand-ink dark:text-white">
                 {post.title}
               </h3>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{post.description}</p>
+              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-white">{post.description}</p>
             </article>
           ))}
-        </div>
-        <div className="mt-8 flex justify-start">
-          <LiquidButton
-            size="xl"
-            onClick={() => navigate("/blog")}
-          >
-            Open Matchify Blog
-          </LiquidButton>
         </div>
       </section>
     </div>

@@ -19,11 +19,11 @@ export function BlogPage() {
             <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-brand-red">
               {post.category}
             </p>
-            <h2 className="mt-5 font-display text-4xl leading-tight text-brand-ink">
+            <h2 className="mt-5 font-display text-4xl leading-tight text-brand-ink dark:text-white">
               {post.title}
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-600">{post.description}</p>
-            <button className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue hover:text-brand-red">
+            <p className="mt-5 text-base leading-8 text-slate-600 dark:text-white">{post.description}</p>
+            <button className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.12em] text-brand-blue hover:text-brand-red dark:text-[#73C0FE]">
               Article layout ready <ArrowRight size={16} />
             </button>
           </article>

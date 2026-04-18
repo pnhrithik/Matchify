@@ -1,5 +1,6 @@
 import { LeadForm } from "@/components/ui/lead-form";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { siteContact } from "@/lib/data";
 
 export function ContactPage() {
   return (
@@ -9,15 +10,12 @@ export function ContactPage() {
           <SectionHeading
             eyebrow="Contact"
             title="Tell Matchify where you are now and where you want to be by Match season."
-            copy="Use the form to start the conversation. It opens a prefilled email draft, which keeps the first-touch workflow lightweight while the site is still in its early launch phase."
+            copy="Use the form to start the conversation. It opens a prefilled email draft so Matchify can review your stage, research goals, and application priorities quickly."
           />
-          <div className="mt-8 grid gap-4 text-base leading-8 text-slate-600">
-            <p>Email: hrithik@matchify.org</p>
-            <p>Domain: matchify.org</p>
-            <p>
-              Founder: Dr Hrithik Dakssesh, incoming Internal Medicine Resident
-              at Macon and Joan Brock Virginia Health Sciences at Old Dominion University
-            </p>
+          <div className="mt-8 grid gap-4 text-base leading-8 text-slate-600 dark:text-white">
+            <p>General inquiries: {siteContact.email}</p>
+            <p>Call or WhatsApp: {siteContact.phones.join(" | ")}</p>
+            <p>Instagram: @matchify_org</p>
           </div>
         </div>
 
