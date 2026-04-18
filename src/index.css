@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color: #091037;
+    background: #f4efe7;
+  }
+
+  html.dark {
+    color: #edf2ff;
+    background: #08102d;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-mesh font-sans text-brand-ink antialiased;
+  }
+
+  body::selection {
+    background: rgba(197, 26, 36, 0.18);
+  }
+
+  html.dark body {
+    background:
+      radial-gradient(circle at top left, rgba(90, 128, 255, 0.18), transparent 22%),
+      radial-gradient(circle at top right, rgba(197, 26, 36, 0.14), transparent 28%),
+      linear-gradient(180deg, #08102d 0%, #0a143a 38%, #111a40 100%);
+    @apply text-slate-100;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  a {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-[min(1180px,calc(100vw-1.5rem))] md:w-[min(1180px,calc(100vw-2.5rem))];
+  }
+
+  .surface {
+    @apply rounded-[28px] border border-white/80 bg-white/75 shadow-haze backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:shadow-none;
+    box-shadow:
+      0 22px 60px rgba(9, 16, 55, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .section-title {
+    @apply font-display text-4xl leading-[0.96] tracking-[-0.04em] text-brand-ink dark:text-white md:text-5xl;
+  }
+
+  .section-copy {
+    @apply text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg;
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.24em] text-brand-red;
+  }
+
+  .pill-button {
+    @apply inline-flex min-h-14 items-center justify-center rounded-full px-6 text-sm font-extrabold uppercase tracking-[0.08em];
+  }
+
+  .editorial-card {
+    @apply relative overflow-hidden rounded-[30px] border border-brand-blue/10 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+    box-shadow:
+      0 24px 80px rgba(9, 16, 55, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  .editorial-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top right, rgba(197, 26, 36, 0.08), transparent 28%),
+      linear-gradient(180deg, rgba(255,255,255,0.12), transparent 30%);
+  }
+
+  .editorial-chip {
+    @apply inline-flex items-center rounded-full border border-brand-blue/10 bg-white/70 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand-blue dark:border-white/10 dark:bg-white/5 dark:text-slate-100;
+  }
+
+  .nav-shell {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.68)),
+      radial-gradient(circle at top right, rgba(197, 26, 36, 0.08), transparent 28%);
+  }
+
+  html.dark .nav-shell {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)),
+      radial-gradient(circle at top right, rgba(197, 26, 36, 0.14), transparent 28%);
+  }
+}
